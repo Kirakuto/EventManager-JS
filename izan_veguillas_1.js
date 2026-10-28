@@ -9,68 +9,65 @@ console.log("Bienvenido");
 console.log("-----------");
 
 
-let valid = false;
-do {
+let nombre = preNombre();
+
+function preNombre(){
     rl.question("Nombre de la actividad: ", function (nombre) {
 
         if (nombre != null || nombre != "") {
 
             console.log("-----------");
-            valid = true;
 
         } else {
             console.log("El nombre no puede estar vacio");
-            valid = false;
-
+            preNombre();
         }
     });
-} while (valid == false);
-valid = false;
+}
 
-do {
+let responsable = preResponsable();
+
+function preResponsable(){
     rl.question("Nombre y apellidos del responsable: ", function (responsable) {
 
         if (responsable != null || responsable != "") {
 
             console.log("-----------");
             console.log("Nombre responsable: " + responsable)
-            valid = true;
 
         } else {
             console.log("El nombre no puede estar vacio");
-            valid = false;
         }
     });
-} while (valid == false);
-valid = false;
+}
 
-do {
+let plazas = prePlazas();
+
+function prePlazas(){
     rl.question("Numero de plazas:", function (plazas) {
 
         if (plazas >= 1 || plazas != null || plazas != "") {
             console.log("-----------");
-            valid = true;
         } else {
             console.log("El numero de plazas no puede ser menor que 1");
-            valid = false;
         }
     });
-} while (valid == false);
-valid = false;
+}
 
-do {
-    rl.question("Precio de inscripcion:", function (pecio) {
+let precio = prePlazas();
+
+function prePrecio(){
+    rl.question("Precio de inscripcion:", function (precio) {
 
         if (precio >= 0 || precio != null || precio != "") {
             console.log("-----------");
-            valid = true;
+
         } else {
             console.log("El precio no puede ser menor que 0");
-            valid = false;
+
         }
     })
-} while (valid == false);
-valid = false;
+} 
 
 do {
     //Vamos a preguntar por cada apartado por separado para facilitar la creacion del objeto Date
